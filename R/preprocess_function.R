@@ -17,9 +17,9 @@
 #' @importFrom mice mice
 #' @importFrom mice complete
 #' @importFrom tidyr drop_na
+#' @importFrom stringr str_split
 #' @import h2o
 #' @import tibble
-#' @import stringi
 #' @import mlr
 #' @import purrr
 
@@ -128,7 +128,7 @@ preprocess <- function(file, id_var   = NULL,
 
   names_before_nzv <- names(df)
 
-  df <- removeConstantFeatures(df, perc = .05)
+  df <- removeConstantFeatures(df, perc = .05, show.info = F)
 
   nzv_names <- setdiff(names_before_nzv, names(df))
 
